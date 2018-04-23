@@ -1,2 +1,2 @@
-# projects
-java, scala, python, groovy and more libs, tools etc.
+# Projects
+A collection of libs, tools etc.
