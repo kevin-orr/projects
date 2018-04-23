@@ -19,7 +19,7 @@ public class RingBufferTest {
 
     @Test
     public void readingFromEmptyBufferShouldThrowException() throws RingBufferIOException {
-        RingBuffer<Integer> buffer = new RingBuffer<>(1);
+        RingBuffer<Integer> buffer = RingBuffer.ofSize(1);
 
         expectedException.expect(RingBufferIOException.class);
         expectedException.expectMessage("Tried to read from empty buffer");
@@ -29,7 +29,7 @@ public class RingBufferTest {
     @Ignore("Remove to run test")
     @Test
     public void canReadItemJustWritten() throws RingBufferIOException {
-        RingBuffer<Integer> buffer = new RingBuffer<>(1);
+        RingBuffer<Integer> buffer = RingBuffer.ofSize(1);
 
         buffer.write(1);
         assertThat(buffer.read(), is(1));
@@ -38,7 +38,7 @@ public class RingBufferTest {
     @Ignore("Remove to run test")
     @Test
     public void canReadItemOnlyOnce() throws RingBufferIOException {
-        RingBuffer<Integer> buffer = new RingBuffer<>(1);
+        RingBuffer<Integer> buffer = RingBuffer.ofSize(1);
 
         buffer.write(1);
         assertThat(buffer.read(), is(1));
@@ -51,7 +51,7 @@ public class RingBufferTest {
     @Ignore("Remove to run test")
     @Test
     public void readsItemsInOrderWritten() throws RingBufferIOException {
-        RingBuffer<Integer> buffer = new RingBuffer<>(2);
+        RingBuffer<Integer> buffer = RingBuffer.ofSize(2);
 
         buffer.write(1);
         buffer.write(2);
@@ -62,7 +62,7 @@ public class RingBufferTest {
     @Ignore("Remove to run test")
     @Test
     public void fullBufferCantBeWrittenTo() throws RingBufferIOException {
-        RingBuffer<Integer> buffer = new RingBuffer<>(1);
+        RingBuffer<Integer> buffer = RingBuffer.ofSize(1);
 
         buffer.write(1);
         expectedException.expect(RingBufferIOException.class);
@@ -73,7 +73,7 @@ public class RingBufferTest {
     @Ignore("Remove to run test")
     @Test
     public void readFreesUpSpaceForWrite() throws RingBufferIOException {
-        RingBuffer<Integer> buffer = new RingBuffer<>(1);
+        RingBuffer<Integer> buffer = RingBuffer.ofSize(1);
 
         buffer.write(1);
         assertThat(buffer.read(), is(1));
@@ -84,7 +84,7 @@ public class RingBufferTest {
     @Ignore("Remove to run test")
     @Test
     public void maintainsReadPositionAcrossWrites() throws RingBufferIOException {
-        RingBuffer<Integer> buffer = new RingBuffer<>(3);
+        RingBuffer<Integer> buffer = RingBuffer.ofSize(3);
 
         buffer.write(1);
         buffer.write(2);
@@ -97,7 +97,7 @@ public class RingBufferTest {
     @Ignore("Remove to run test")
     @Test
     public void cantReadClearedItems() throws RingBufferIOException {
-        RingBuffer<Integer> buffer = new RingBuffer<>(1);
+        RingBuffer<Integer> buffer = RingBuffer.ofSize(1);
 
         buffer.write(1);
         buffer.clear();
@@ -109,7 +109,7 @@ public class RingBufferTest {
     @Ignore("Remove to run test")
     @Test
     public void clearFreesUpCapacity() throws RingBufferIOException {
-        RingBuffer<Integer> buffer = new RingBuffer<>(1);
+        RingBuffer<Integer> buffer = RingBuffer.ofSize(1);
 
         buffer.write(1);
         buffer.clear();
@@ -120,7 +120,7 @@ public class RingBufferTest {
     @Ignore("Remove to run test")
     @Test
     public void clearDoesNothingOnEmptyBuffer() throws RingBufferIOException {
-        RingBuffer<Integer> buffer = new RingBuffer<>(1);
+        RingBuffer<Integer> buffer = RingBuffer.ofSize(1);
 
         buffer.clear();
         buffer.write(1);
@@ -130,7 +130,7 @@ public class RingBufferTest {
     @Ignore("Remove to run test")
     @Test
     public void overwriteActsLikeWriteOnNonFullBuffer() throws RingBufferIOException {
-        RingBuffer<Integer> buffer = new RingBuffer<>(2);
+        RingBuffer<Integer> buffer = RingBuffer.ofSize(2);
 
         buffer.write(1);
         buffer.overwrite(2);
@@ -141,7 +141,7 @@ public class RingBufferTest {
     @Ignore("Remove to run test")
     @Test
     public void overwriteRemovesOldestElementOnFullBuffer() throws RingBufferIOException {
-        RingBuffer<Integer> buffer = new RingBuffer<>(2);
+        RingBuffer<Integer> buffer = RingBuffer.ofSize(2);
 
         buffer.write(1);
         buffer.write(2);
@@ -153,7 +153,7 @@ public class RingBufferTest {
     @Ignore("Remove to run test")
     @Test
     public void overwriteDoesntRemoveAnAlreadyReadElement() throws RingBufferIOException {
-        RingBuffer<Integer> buffer = new RingBuffer<>(3);
+        RingBuffer<Integer> buffer = RingBuffer.ofSize(3);
 
         buffer.write(1);
         buffer.write(2);
