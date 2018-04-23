@@ -20,4 +20,12 @@ public interface RingBuffer<T> {
      */
     void write(T element) throws RingBufferIOException;
 
+    /**
+     * If ring buffer is full, removes oldest element in ring buffer to make room for new element inserted.
+     * If buffer not full then adds element to ring buffer without over writing any element
+     * @param element the element to add to ring buffer with potential removal of oldest entry to make room
+     */
+    void overwrite(T element);
+
+
 }
