@@ -14,7 +14,7 @@ public interface RingBuffer<T> {
     T read() throws RingBufferIOException;
 
     /**
-     * Sticks an element into the ring buffer - the element becomes the first in the ring buffer
+     * Sticks an element into the ring buffer and thus becomes the youngest element
      * @param element what to put in the ring buffer
      * @throws RingBufferIOException when an attempt is made to write to a full ring buffer
      */
