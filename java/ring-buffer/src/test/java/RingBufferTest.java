@@ -1,3 +1,5 @@
+package com.sumus.ringbuffer;
+
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 
@@ -16,17 +18,17 @@ public class RingBufferTest {
     public ExpectedException expectedException = ExpectedException.none();
 
     @Test
-    public void readingFromEmptyBufferShouldThrowException() throws BufferIOException {
+    public void readingFromEmptyBufferShouldThrowException() throws RingBufferIOException {
         RingBuffer<Integer> buffer = new RingBuffer<>(1);
 
-        expectedException.expect(BufferIOException.class);
+        expectedException.expect(RingBufferIOException.class);
         expectedException.expectMessage("Tried to read from empty buffer");
         buffer.read();
     }
 
     @Ignore("Remove to run test")
     @Test
-    public void canReadItemJustWritten() throws BufferIOException {
+    public void canReadItemJustWritten() throws RingBufferIOException {
         RingBuffer<Integer> buffer = new RingBuffer<>(1);
 
         buffer.write(1);
@@ -35,20 +37,20 @@ public class RingBufferTest {
 
     @Ignore("Remove to run test")
     @Test
-    public void canReadItemOnlyOnce() throws BufferIOException {
+    public void canReadItemOnlyOnce() throws RingBufferIOException {
         RingBuffer<Integer> buffer = new RingBuffer<>(1);
 
         buffer.write(1);
         assertThat(buffer.read(), is(1));
 
-        expectedException.expect(BufferIOException.class);
+        expectedException.expect(RingBufferIOException.class);
         expectedException.expectMessage("Tried to read from empty buffer");
         buffer.read();
     }
 
     @Ignore("Remove to run test")
     @Test
-    public void readsItemsInOrderWritten() throws BufferIOException {
+    public void readsItemsInOrderWritten() throws RingBufferIOException {
         RingBuffer<Integer> buffer = new RingBuffer<>(2);
 
         buffer.write(1);
@@ -59,18 +61,18 @@ public class RingBufferTest {
 
     @Ignore("Remove to run test")
     @Test
-    public void fullBufferCantBeWrittenTo() throws BufferIOException {
+    public void fullBufferCantBeWrittenTo() throws RingBufferIOException {
         RingBuffer<Integer> buffer = new RingBuffer<>(1);
 
         buffer.write(1);
-        expectedException.expect(BufferIOException.class);
+        expectedException.expect(RingBufferIOException.class);
         expectedException.expectMessage("Tried to write to full buffer");
         buffer.write(2);
     }
 
     @Ignore("Remove to run test")
     @Test
-    public void readFreesUpSpaceForWrite() throws BufferIOException {
+    public void readFreesUpSpaceForWrite() throws RingBufferIOException {
         RingBuffer<Integer> buffer = new RingBuffer<>(1);
 
         buffer.write(1);
@@ -81,7 +83,7 @@ public class RingBufferTest {
 
     @Ignore("Remove to run test")
     @Test
-    public void maintainsReadPositionAcrossWrites() throws BufferIOException {
+    public void maintainsReadPositionAcrossWrites() throws RingBufferIOException {
         RingBuffer<Integer> buffer = new RingBuffer<>(3);
 
         buffer.write(1);
@@ -94,19 +96,19 @@ public class RingBufferTest {
 
     @Ignore("Remove to run test")
     @Test
-    public void cantReadClearedItems() throws BufferIOException {
+    public void cantReadClearedItems() throws RingBufferIOException {
         RingBuffer<Integer> buffer = new RingBuffer<>(1);
 
         buffer.write(1);
         buffer.clear();
-        expectedException.expect(BufferIOException.class);
+        expectedException.expect(RingBufferIOException.class);
         expectedException.expectMessage("Tried to read from empty buffer");
         buffer.read();
     }
 
     @Ignore("Remove to run test")
     @Test
-    public void clearFreesUpCapacity() throws BufferIOException {
+    public void clearFreesUpCapacity() throws RingBufferIOException {
         RingBuffer<Integer> buffer = new RingBuffer<>(1);
 
         buffer.write(1);
@@ -117,7 +119,7 @@ public class RingBufferTest {
 
     @Ignore("Remove to run test")
     @Test
-    public void clearDoesNothingOnEmptyBuffer() throws BufferIOException {
+    public void clearDoesNothingOnEmptyBuffer() throws RingBufferIOException {
         RingBuffer<Integer> buffer = new RingBuffer<>(1);
 
         buffer.clear();
@@ -127,7 +129,7 @@ public class RingBufferTest {
 
     @Ignore("Remove to run test")
     @Test
-    public void overwriteActsLikeWriteOnNonFullBuffer() throws BufferIOException {
+    public void overwriteActsLikeWriteOnNonFullBuffer() throws RingBufferIOException {
         RingBuffer<Integer> buffer = new RingBuffer<>(2);
 
         buffer.write(1);
@@ -138,7 +140,7 @@ public class RingBufferTest {
 
     @Ignore("Remove to run test")
     @Test
-    public void overwriteRemovesOldestElementOnFullBuffer() throws BufferIOException {
+    public void overwriteRemovesOldestElementOnFullBuffer() throws RingBufferIOException {
         RingBuffer<Integer> buffer = new RingBuffer<>(2);
 
         buffer.write(1);
@@ -150,7 +152,7 @@ public class RingBufferTest {
 
     @Ignore("Remove to run test")
     @Test
-    public void overwriteDoesntRemoveAnAlreadyReadElement() throws BufferIOException {
+    public void overwriteDoesntRemoveAnAlreadyReadElement() throws RingBufferIOException {
         RingBuffer<Integer> buffer = new RingBuffer<>(3);
 
         buffer.write(1);
