@@ -27,5 +27,9 @@ public interface RingBuffer<T> {
      */
     void overwrite(T element);
 
+    /**
+     * Cleans out all elements from ring buffer and results in an empty ring buffer but keeping the original size
+     */
+    void clear();
 
 }
