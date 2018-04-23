@@ -1,5 +1,7 @@
 package com.sumus.ringbuffer;
 
+import static com.sumus.ringbuffer.concrete.RingBufferFlavour.create;
+
 /**
  * A ring buffer - fixed size and singular buffer data structure which acts as if it were connected end-to-end.
  * Insertion and removal similiar to FIFO in semantics.
@@ -32,4 +34,7 @@ public interface RingBuffer<T> {
      */
     void clear();
 
+    /** creation of buffer bases on size */
+
+    static RingBuffer ofSize(int size) throws RingBufferIOException { return create(size); }
 }
