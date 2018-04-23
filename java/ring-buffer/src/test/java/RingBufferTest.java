@@ -17,7 +17,7 @@ public class RingBufferTest {
 
     @Test
     public void readingFromEmptyBufferShouldThrowException() throws BufferIOException {
-        CircularBuffer<Integer> buffer = new CircularBuffer<>(1);
+        RingBuffer<Integer> buffer = new RingBuffer<>(1);
 
         expectedException.expect(BufferIOException.class);
         expectedException.expectMessage("Tried to read from empty buffer");
@@ -27,7 +27,7 @@ public class RingBufferTest {
     @Ignore("Remove to run test")
     @Test
     public void canReadItemJustWritten() throws BufferIOException {
-        CircularBuffer<Integer> buffer = new CircularBuffer<>(1);
+        RingBuffer<Integer> buffer = new RingBuffer<>(1);
 
         buffer.write(1);
         assertThat(buffer.read(), is(1));
@@ -36,7 +36,7 @@ public class RingBufferTest {
     @Ignore("Remove to run test")
     @Test
     public void canReadItemOnlyOnce() throws BufferIOException {
-        CircularBuffer<Integer> buffer = new CircularBuffer<>(1);
+        RingBuffer<Integer> buffer = new RingBuffer<>(1);
 
         buffer.write(1);
         assertThat(buffer.read(), is(1));
@@ -49,7 +49,7 @@ public class RingBufferTest {
     @Ignore("Remove to run test")
     @Test
     public void readsItemsInOrderWritten() throws BufferIOException {
-        CircularBuffer<Integer> buffer = new CircularBuffer<>(2);
+        RingBuffer<Integer> buffer = new RingBuffer<>(2);
 
         buffer.write(1);
         buffer.write(2);
@@ -60,7 +60,7 @@ public class RingBufferTest {
     @Ignore("Remove to run test")
     @Test
     public void fullBufferCantBeWrittenTo() throws BufferIOException {
-        CircularBuffer<Integer> buffer = new CircularBuffer<>(1);
+        RingBuffer<Integer> buffer = new RingBuffer<>(1);
 
         buffer.write(1);
         expectedException.expect(BufferIOException.class);
@@ -71,7 +71,7 @@ public class RingBufferTest {
     @Ignore("Remove to run test")
     @Test
     public void readFreesUpSpaceForWrite() throws BufferIOException {
-        CircularBuffer<Integer> buffer = new CircularBuffer<>(1);
+        RingBuffer<Integer> buffer = new RingBuffer<>(1);
 
         buffer.write(1);
         assertThat(buffer.read(), is(1));
@@ -82,7 +82,7 @@ public class RingBufferTest {
     @Ignore("Remove to run test")
     @Test
     public void maintainsReadPositionAcrossWrites() throws BufferIOException {
-        CircularBuffer<Integer> buffer = new CircularBuffer<>(3);
+        RingBuffer<Integer> buffer = new RingBuffer<>(3);
 
         buffer.write(1);
         buffer.write(2);
@@ -95,7 +95,7 @@ public class RingBufferTest {
     @Ignore("Remove to run test")
     @Test
     public void cantReadClearedItems() throws BufferIOException {
-        CircularBuffer<Integer> buffer = new CircularBuffer<>(1);
+        RingBuffer<Integer> buffer = new RingBuffer<>(1);
 
         buffer.write(1);
         buffer.clear();
@@ -107,7 +107,7 @@ public class RingBufferTest {
     @Ignore("Remove to run test")
     @Test
     public void clearFreesUpCapacity() throws BufferIOException {
-        CircularBuffer<Integer> buffer = new CircularBuffer<>(1);
+        RingBuffer<Integer> buffer = new RingBuffer<>(1);
 
         buffer.write(1);
         buffer.clear();
@@ -118,7 +118,7 @@ public class RingBufferTest {
     @Ignore("Remove to run test")
     @Test
     public void clearDoesNothingOnEmptyBuffer() throws BufferIOException {
-        CircularBuffer<Integer> buffer = new CircularBuffer<>(1);
+        RingBuffer<Integer> buffer = new RingBuffer<>(1);
 
         buffer.clear();
         buffer.write(1);
@@ -128,7 +128,7 @@ public class RingBufferTest {
     @Ignore("Remove to run test")
     @Test
     public void overwriteActsLikeWriteOnNonFullBuffer() throws BufferIOException {
-        CircularBuffer<Integer> buffer = new CircularBuffer<>(2);
+        RingBuffer<Integer> buffer = new RingBuffer<>(2);
 
         buffer.write(1);
         buffer.overwrite(2);
@@ -139,7 +139,7 @@ public class RingBufferTest {
     @Ignore("Remove to run test")
     @Test
     public void overwriteRemovesOldestElementOnFullBuffer() throws BufferIOException {
-        CircularBuffer<Integer> buffer = new CircularBuffer<>(2);
+        RingBuffer<Integer> buffer = new RingBuffer<>(2);
 
         buffer.write(1);
         buffer.write(2);
@@ -151,7 +151,7 @@ public class RingBufferTest {
     @Ignore("Remove to run test")
     @Test
     public void overwriteDoesntRemoveAnAlreadyReadElement() throws BufferIOException {
-        CircularBuffer<Integer> buffer = new CircularBuffer<>(3);
+        RingBuffer<Integer> buffer = new RingBuffer<>(3);
 
         buffer.write(1);
         buffer.write(2);
