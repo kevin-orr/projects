@@ -26,7 +26,6 @@ public class RingBufferTest {
         buffer.read();
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void canReadItemJustWritten() throws RingBufferIOException {
         RingBuffer<Integer> buffer = RingBuffer.ofSize(1);
@@ -35,7 +34,6 @@ public class RingBufferTest {
         assertThat(buffer.read(), is(1));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void canReadItemOnlyOnce() throws RingBufferIOException {
         RingBuffer<Integer> buffer = RingBuffer.ofSize(1);
@@ -48,7 +46,6 @@ public class RingBufferTest {
         buffer.read();
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void readsItemsInOrderWritten() throws RingBufferIOException {
         RingBuffer<Integer> buffer = RingBuffer.ofSize(2);
@@ -59,7 +56,6 @@ public class RingBufferTest {
         assertThat(buffer.read(), is(2));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void fullBufferCantBeWrittenTo() throws RingBufferIOException {
         RingBuffer<Integer> buffer = RingBuffer.ofSize(1);
@@ -70,7 +66,6 @@ public class RingBufferTest {
         buffer.write(2);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void readFreesUpSpaceForWrite() throws RingBufferIOException {
         RingBuffer<Integer> buffer = RingBuffer.ofSize(1);
@@ -81,7 +76,6 @@ public class RingBufferTest {
         assertThat(buffer.read(), is(2));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void maintainsReadPositionAcrossWrites() throws RingBufferIOException {
         RingBuffer<Integer> buffer = RingBuffer.ofSize(3);
@@ -94,7 +88,6 @@ public class RingBufferTest {
         assertThat(buffer.read(), is(3));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void cantReadClearedItems() throws RingBufferIOException {
         RingBuffer<Integer> buffer = RingBuffer.ofSize(1);
@@ -106,7 +99,6 @@ public class RingBufferTest {
         buffer.read();
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void clearFreesUpCapacity() throws RingBufferIOException {
         RingBuffer<Integer> buffer = RingBuffer.ofSize(1);
@@ -117,7 +109,6 @@ public class RingBufferTest {
         assertThat(buffer.read(), is(2));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void clearDoesNothingOnEmptyBuffer() throws RingBufferIOException {
         RingBuffer<Integer> buffer = RingBuffer.ofSize(1);
@@ -127,7 +118,6 @@ public class RingBufferTest {
         assertThat(buffer.read(), is(1));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void overwriteActsLikeWriteOnNonFullBuffer() throws RingBufferIOException {
         RingBuffer<Integer> buffer = RingBuffer.ofSize(2);
@@ -138,7 +128,6 @@ public class RingBufferTest {
         assertThat(buffer.read(), is(2));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void overwriteRemovesOldestElementOnFullBuffer() throws RingBufferIOException {
         RingBuffer<Integer> buffer = RingBuffer.ofSize(2);
@@ -150,7 +139,6 @@ public class RingBufferTest {
         assertThat(buffer.read(), is(3));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void overwriteDoesntRemoveAnAlreadyReadElement() throws RingBufferIOException {
         RingBuffer<Integer> buffer = RingBuffer.ofSize(3);
