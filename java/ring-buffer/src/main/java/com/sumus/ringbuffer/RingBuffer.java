@@ -41,6 +41,7 @@ public interface RingBuffer<T> {
     }
 
     /** creation of buffer bases on size */
+    static <T> RingBuffer<T> ofTypeAndSize(Type type, int size) throws RingBufferIOException { return create(type, size); }
 
-    static RingBuffer ofSize(int size) throws RingBufferIOException { return create(size); }
+    static <T> RingBuffer<T> ofSize(int size) throws RingBufferIOException { return create(Type.List ,size); }
 }

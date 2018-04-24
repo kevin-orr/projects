@@ -5,10 +5,17 @@ import com.sumus.ringbuffer.RingBufferIOException;
 
 public final class RingBufferFlavour {
 
-    public static <T> RingBuffer<T> create(int size) throws RingBufferIOException {
+    public static <T> RingBuffer<T> create(RingBuffer.Type type, int size) throws RingBufferIOException {
 
         if (size < 0) throw new RingBufferIOException("Buffer size cannot be negative");
 
-        return RingBufferAsList.create(size);
+        switch (type) {
+            case List:
+                return RingBufferAsList.create(size);
+            case Queue:
+                return RingBufferAsQueue.create(size);
+            default:
+                return RingBufferAsList.create(size);
+        }
     }
 }

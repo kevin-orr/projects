@@ -1,8 +1,8 @@
-package com.sumus.ringbuffer;
-
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 
+import com.sumus.ringbuffer.RingBuffer;
+import com.sumus.ringbuffer.RingBufferIOException;
 import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
