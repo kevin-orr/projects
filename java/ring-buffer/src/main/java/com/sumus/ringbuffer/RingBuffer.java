@@ -34,6 +34,12 @@ public interface RingBuffer<T> {
      */
     void clear();
 
+    /** allow client to decide what type of structure will back the buffer - list type for example */
+    enum Type {
+        List, /** use a list structure to back the buffer implementation */
+        Queue /** use a queue structure to back the buffer implementation */
+    }
+
     /** creation of buffer bases on size */
 
     static RingBuffer ofSize(int size) throws RingBufferIOException { return create(size); }
