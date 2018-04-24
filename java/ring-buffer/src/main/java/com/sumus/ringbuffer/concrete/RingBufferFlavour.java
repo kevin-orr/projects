@@ -14,6 +14,8 @@ public final class RingBufferFlavour {
                 return RingBufferAsList.create(size);
             case Queue:
                 return RingBufferAsQueue.create(size);
+            case Concurrent:
+                return RingBufferSimpleConcurrent.create(size);
             default:
                 return RingBufferAsList.create(size);
         }
