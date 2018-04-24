@@ -15,8 +15,13 @@ When the **Ring Buffer** is full any further writes will cause an IO exception t
 
 When a **Ring Buffer** is full, the user can opt to overwrite the oldest.
 
+## Java version
 
-# Running the tests
+Java 8 is required
+
+
+
+## Running the tests
 
 To run the tests execute the following in console:
 
