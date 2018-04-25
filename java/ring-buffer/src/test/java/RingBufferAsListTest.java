@@ -12,7 +12,7 @@ import org.junit.rules.ExpectedException;
  * Thanks to exercism.io for this unit test - I've changed the name to suit.
  */
 
-public class RingBufferTest {
+public class RingBufferAsListTest {
 
     @Rule
     public ExpectedException expectedException = ExpectedException.none();
