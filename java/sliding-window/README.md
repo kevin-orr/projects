@@ -19,3 +19,17 @@ List<Integer>(2, 3, 4)
 List<Integer>(3, 4, 5)
 ```
 
+
+## Sample
+Provided a sample of how the sliding window can be used in **LargestProductFromString** 
+Given a string of digits, use it to calculate the largest product from sliding over string. 
+For example, what's the largest product that result when we slide over **"576802143"** with a window of size **2**?
+
+```java
+
+final LargestProductFromString calculator = new LargestProductFromString("576802143");
+
+final long actualProduct = calculator.calculateLargestProductForSeriesLength(2);
+
+assertEquals(48, actualProduct);
+```
