@@ -21,9 +21,12 @@ List<Integer>(3, 4, 5)
 
 
 ## Sample
-Provided a sample of how the sliding window can be used in **LargestProductFromString** 
-Given a string of digits, use it to calculate the largest product from sliding over string. 
+I've provided a very simple sample of how the sliding window can be used in **LargestProductFromString.** 
+
+Given a string of digits, use it to calculate the largest product from sliding over string - take a look at this exercism.io 
+[exercise](http://exercism.io/exercises/java/largest-series-product/readme). 
 For example, what's the largest product that result when we slide over **"576802143"** with a window of size **2**?
+
 
 ```java
 
