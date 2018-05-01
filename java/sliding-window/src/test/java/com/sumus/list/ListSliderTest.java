@@ -20,6 +20,17 @@ public class ListSliderTest {
     public ExpectedException expectedException = ExpectedException.none();
 
     @Test
+    public void expectSameListWhenWindowSizeEqualToListSize() throws IllegalArgumentException {
+        List<Integer> list = Arrays.asList(10, 20, 30, 40, 50);
+
+        final List<List<Integer>> expectedProduct = Arrays.asList(list);
+
+        final List<List<Integer>> actualProduct = ListSlider.slide(list.size(), list);
+
+        assertEquals(expectedProduct, actualProduct);
+    }
+
+    @Test
     public void expectExceptionWhenWindowSizeNegative() throws IllegalArgumentException {
         List<Character> charList = Arrays.asList('a', 'b', 'c');
 
@@ -39,8 +50,6 @@ public class ListSliderTest {
 
     @Test
     public void expectExceptionWhenNullList() throws IllegalArgumentException {
-        List<Character> charList = null;
-
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("List argument cannot be null or empty.");
         ListSlider.<Character>slide(1, null);
