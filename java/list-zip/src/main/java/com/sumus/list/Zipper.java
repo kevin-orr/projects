@@ -25,6 +25,20 @@ public class Zipper {
                 ;
     }
 
+    /**
+     *  Zips up a list with its indices (zero based of course ;-)
+     *  Usage:
+     *  List<Character> chars = Arrays.asList('a', 'b', 'c');
+     *
+     *  final List<Pair<Character, Integer>> expected = Zipper.zipWithIndex(chars)
+     *  Will result in:
+     *  Arrays.asList(Pair.of('a',0), Pair.of('b',1), Pair.of('c',2));
+     */
+    public static <A, Integer> List<Pair<A, java.lang.Integer>> zipWithIndex(List<A> list) {
+        required(list, "Null or empty list argument(s) to zip not allowed.");
+        return zip(list, IntStream.range(0, list.size()).boxed().collect(Collectors.toList()));
+    }
+
     static <T> List<T> required(List<T> obj, String message) {
         if (obj == null || obj.isEmpty()) throw new IllegalArgumentException(message);
         return obj;
