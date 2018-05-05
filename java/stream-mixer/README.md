@@ -38,3 +38,30 @@ will result in output:
 100000
 
 ```
+
+Whereas, if we used Stream's concat method:
+
+```java
+IntStream one = IntStream.iterate(0, n -> n + 1).limit(5);
+IntStream two = IntStream.iterate(10, n -> n * 10).limit(5);
+
+IntStream.concat(one, two)
+    .forEach(System.out::println);
+
+```
+will result in output:
+
+```java
+
+0
+1
+2
+3
+4
+10
+100
+1000
+10000
+100000
+
+```
