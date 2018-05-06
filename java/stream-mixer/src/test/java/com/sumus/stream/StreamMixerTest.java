@@ -56,13 +56,34 @@ public class StreamMixerTest {
     }
 
     @Test
-    public void expectNullPointerExceptionWhenPassedNullStream() throws IllegalArgumentException {
+    public void expectStreamsToBeMixedWithBothLimitIs3() throws IllegalArgumentException {
+
+        IntStream one = IntStream.iterate(0, n -> n + 1).limit(3);
+
+        IntStream two = IntStream.iterate(10, n -> n * 10).limit(3);
+
+        List expected = Arrays.asList(0,10,1,100,2,1000);
+
+        List actual = StreamMixer.intMixer(one, two)
+                .mapToObj(i -> i)
+                .collect(Collectors.toList());
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void expectNullPointerExceptionWhenFirstStreamNull() throws IllegalArgumentException {
         expectedException.expect(NullPointerException.class);
         //expectedException.expectMessage(null);
         StreamMixer.intMixer(null, IntStream.of(1,2));
     }
 
-
+    @Test
+    public void expectNullPointerExceptionWhenSecondStreamNull() throws IllegalArgumentException {
+        expectedException.expect(NullPointerException.class);
+        //expectedException.expectMessage(null);
+        StreamMixer.intMixer(IntStream.of(1,2), null);
+    }
 
 
 }
