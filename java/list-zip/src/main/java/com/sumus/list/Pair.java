@@ -13,7 +13,7 @@ import java.util.Optional;
  * So safer to keep this to pairs of "primitive" types
  *
  */
-class Pair<A, B> {
+final class Pair<A, B> {
 
     private final Optional<A> a;
     private final Optional<B> b;
