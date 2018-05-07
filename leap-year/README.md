@@ -1,4 +1,4 @@
-# Leap Year
+# Leap Year Scala
 
 Given a year, object will report if it is a leap year.
 
