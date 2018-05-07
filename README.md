@@ -5,6 +5,10 @@ A simple util to determine if a given year is a leap year or not.
 # [List Zip (Java 8)](list-zip/)
 Another nice feature of Seq[A] are the [**zip, zipWithIndex**](https://www.scala-lang.org/api/current/scala/collection/Seq.html) methods which combines elements from Seq(s) into a Seq of tuples (or pairs.) So I wanted to implement something similar in Java.
 
+# [Page Watcher (Java 8)](page-watcher/)
+Java 8 introduced the Watch service which can be used to watch a file or directory for any changes. I wanted to do something similar but for page pages.
+
+
 # [Ring Buffer (Java 8)](ring-buffer/)
 A simple implementation of a **Ring Buffer** or what's also known as **Circular or Cyclic Buffer**.
 
