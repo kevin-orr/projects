@@ -105,6 +105,16 @@ public class LargestProductFromStringTest {
     }
 
     @Test
+    public void testCorrectlyCalculatesLargestProductOf12345() {
+        final LargestProductFromString calculator = new LargestProductFromString("12345");
+        final long expectedProduct = 20;
+
+        final long actualProduct = calculator.largestProductWhenWindowSize(2);
+
+        assertEquals(expectedProduct, actualProduct);
+    }
+
+    @Test
     public void testCorrectlyCalculatesLargestProductOfZeroIfAllSeriesOfGivenLengthContainZero() {
         final LargestProductFromString calculator = new LargestProductFromString("99099");
         final long expectedProduct = 0;
