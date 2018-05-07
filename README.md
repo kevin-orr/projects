@@ -1,3 +1,7 @@
+# [Leap Year](leap-year/)
+A simple util to determine if a given year is in fact a leap year ot not.
+
+
 # [List Zip](list-zip/)
 Another nice feature of Seq[A] are the [**zip, zipWithIndex**](https://www.scala-lang.org/api/current/scala/collection/Seq.html) methods which combines elements from Seq(s) into a Seq of tuples (or pairs.) So I wanted to implement something similar in Java.
 
