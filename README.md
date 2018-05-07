@@ -1,5 +1,5 @@
 # [Leap Year (Scala)](leap-year/)
-A simple util to determine if a given year is in fact a leap year ot not.
+A simple util to determine if a given year is a leap year or not.
 
 
 # [List Zip (Java 8)](list-zip/)
